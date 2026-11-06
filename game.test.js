@@ -1,6 +1,7 @@
 import { test } from "node:test";
 import { strict as assert } from "node:assert";
-import { BEAT, FIRST_BEAT, HIT_WINDOW, noteAt, findHit, eyeRatio, BlinkDetector } from "./game.js";
+import "./game.js";
+const { BEAT, FIRST_BEAT, HIT_WINDOW, noteAt, findHit, eyeRatio, BlinkDetector } = globalThis.BlinkBeatGame;
 
 test("notes follow the music clock and repeat the lane pattern", () => {
   assert.equal(noteAt(0).time, FIRST_BEAT);

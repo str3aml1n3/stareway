@@ -1,27 +1,28 @@
-export const BEAT = 0.5;
-export const FIRST_BEAT = 3;
-export const TRAVEL_TIME = 2.8;
-export const HIT_WINDOW = 0.22;
+(() => {
+const BEAT = 0.5;
+const FIRST_BEAT = 3;
+const TRAVEL_TIME = 2.8;
+const HIT_WINDOW = 0.22;
 
 const pattern = ["left", "right", "left", "right", "right", "left", "right", "left",
   "left", "right", "right", "left", "right", "left", "left", "right"];
 
-export function noteAt(index) {
+function noteAt(index) {
   return { lane: pattern[index % pattern.length], time: FIRST_BEAT + index * BEAT, judged: false };
 }
 
-export function findHit(notes, lane, time) {
+function findHit(notes, lane, time) {
   return notes.filter(note => !note.judged && note.lane === lane && Math.abs(note.time - time) <= HIT_WINDOW)
     .sort((a, b) => Math.abs(a.time - time) - Math.abs(b.time - time))[0];
 }
 
-export function eyeRatio(points, indices) {
+function eyeRatio(points, indices) {
   const distance = (a, b) => Math.hypot(points[a].x - points[b].x, points[a].y - points[b].y);
   const width = distance(indices[0], indices[3]);
   return width ? (distance(indices[1], indices[5]) + distance(indices[2], indices[4])) / (2 * width) : 0;
 }
 
-export class BlinkDetector {
+class BlinkDetector {
   constructor() {
     this.baseline = 0;
     this.samples = 0;
@@ -50,3 +51,6 @@ export class BlinkDetector {
     return false;
   }
 }
+
+globalThis.BlinkBeatGame = { BEAT, FIRST_BEAT, TRAVEL_TIME, HIT_WINDOW, noteAt, findHit, eyeRatio, BlinkDetector };
+})();

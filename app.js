@@ -1,4 +1,4 @@
-import { BEAT, FIRST_BEAT, TRAVEL_TIME, HIT_WINDOW, noteAt, findHit, eyeRatio, BlinkDetector } from "./game.js";
+const { BEAT, FIRST_BEAT, TRAVEL_TIME, HIT_WINDOW, noteAt, findHit, eyeRatio, BlinkDetector } = globalThis.BlinkBeatGame;
 
 const $ = id => document.getElementById(id);
 const canvas = $("game-canvas");
