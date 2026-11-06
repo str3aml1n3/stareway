@@ -23,4 +23,4 @@ jobs:
         run: npm run publish:itch
         env:
           ITCH_IO_KEY: ${{ secrets.ITCH_IO_KEY }}
-          ITCH_IO_TARGET_PATH: ${{ secrets.ITCH_IO_TARGET_PATH }}
+          ITCH_IO_TARGET_PATH: ${{ vars.ITCH_IO_TARGET_PATH }}
