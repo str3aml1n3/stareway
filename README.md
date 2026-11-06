@@ -6,6 +6,8 @@ A little two-lane rhythm game for your eyes and ears. Blink your left or right e
 
 Open `index.html` directly, or run `npm start` and open <http://localhost:8000>. Press **Let's play** to start the original synthesized beat. Enable the camera separately, allow permission, and look toward it with both eyes open for a moment to calibrate. Wink one eye at a time; good lighting helps. Use headphones for the full effect.
 
+When embedding the game in an `<iframe>` (for example on itch.io), the embed must allow camera access, e.g. `<iframe allow="camera; autoplay" …>`; otherwise the browser blocks the camera permission prompt and the game falls back to the arrow keys.
+
 Camera access requires a secure context; use localhost or HTTPS if it does not work when opening the file directly. Eye tracking runs locally in the browser; video is not recorded or uploaded. The MediaPipe library and its face-landmark model are downloaded when the camera is enabled, so that feature requires an internet connection. If camera access or loading fails, the arrow keys still work.
 
 Run `npm test` for the game logic tests.
