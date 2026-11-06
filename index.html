@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#10101b">
+    <title>BLINK BEAT — find your rhythm</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./style.css">
+  </head>
+  <body>
+    <div class="app">
+      <header class="topbar">
+        <a class="brand" href="#" aria-label="Blink Beat home"><span class="brand-icon">✳</span> BLINK<span>BEAT</span><i>.</i></a>
+        <div class="top-center"><span class="live-dot"></span> YOUR LITTLE MOMENT OF FLOW</div>
+        <div class="top-right"><span class="sparkle">✳</span> MADE FOR YOUR EYES ONLY</div>
+      </header>
+
+      <main>
+        <section class="intro">
+          <div>
+            <div class="eyebrow"><span>✦</span> THE BLINK-TO-THE-BEAT GAME <span class="eyebrow-line"></span> VOL. 01</div>
+            <h1>Find your <em>blink.</em></h1>
+            <p>Two eyes. Two lanes. One really good beat.</p>
+          </div>
+          <div class="intro-note"><span>✺</span><p>A LITTLE GAME FOR<br><b>YOUR EYES & EARS</b></p></div>
+        </section>
+
+        <section class="game-layout" aria-label="Blink Beat game">
+          <aside class="side-panel left-panel">
+            <div class="section-label"><span>01 / THE VIBE</span><span>✳</span></div>
+            <div class="album-art" aria-hidden="true">
+              <div class="album-orbit orbit-one"></div><div class="album-orbit orbit-two"></div>
+              <div class="album-face"><span>✦</span><span>✦</span><div>⌣</div></div>
+              <div class="album-caption">FEEL THE<br>FREQUENCY <span>↗</span></div>
+            </div>
+            <div class="track-info"><div><h2>Dream Sequence</h2><p>BLINK BEAT ORIGINAL</p></div><span class="track-icon">♫</span></div>
+            <div class="track-meta"><span><i></i> NOW PLAYING</span><span>120 BPM</span></div>
+            <div class="divider"></div>
+            <div class="how-title">The how-to <span>↗</span></div>
+            <div class="instruction"><span class="instruction-number">01</span><p>Get comfy &amp; enable your camera.</p></div>
+            <div class="instruction"><span class="instruction-number">02</span><p>Blink each eye as the orbs reach the line.</p></div>
+            <div class="instruction"><span class="instruction-number">03</span><p>Get in the groove. That’s it.</p></div>
+            <div class="keyboard-hint"><span>⌨</span><p>No camera? Use <kbd>←</kbd> and <kbd>→</kbd> instead.</p></div>
+          </aside>
+
+          <div class="game-panel">
+            <div class="game-top"><div><span class="game-tag"><i></i> THE PLAYGROUND</span><span class="game-subtitle">A LITTLE BLINK GOES A LONG WAY</span></div><span class="game-stars">✳ &nbsp; ✦ &nbsp; ✳</span></div>
+            <div class="scoreboard">
+              <div><span>SCORE</span><strong id="score">000000</strong></div>
+              <div class="combo"><span>COMBO</span><strong id="combo">0 <small>×</small></strong></div>
+              <div class="status-pill"><span></span><b id="game-status">READY TO FLOW</b></div>
+            </div>
+            <div class="playfield" id="playfield">
+              <canvas id="game-canvas" aria-label="Two lanes of incoming rhythm orbs"></canvas>
+              <div class="lane-label lane-left">LEFT EYE <span>↙</span></div>
+              <div class="lane-label lane-right"><span>↘</span> RIGHT EYE</div>
+              <div class="feedback" id="feedback" aria-live="polite"></div>
+              <div class="start-overlay" id="start-overlay">
+                <div class="overlay-sparkle">✦</div>
+                <div class="overlay-kicker">READY WHEN YOU ARE</div>
+                <h2>Let’s get<br><em>blinking.</em></h2>
+                <p>Catch the beat with a blink.<br>Find a rhythm that feels like you.</p>
+                <button class="primary-button" id="start-button">LET’S PLAY <span>↗</span></button>
+                <div class="overlay-foot">BEST EXPERIENCED WITH HEADPHONES <span>♫</span></div>
+              </div>
+            </div>
+            <div class="game-bottom"><span>✳ &nbsp; BLINK ON THE BEAT</span><div class="level-bars"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div><span>GOOD VIBES ONLY &nbsp; ✳</span></div>
+          </div>
+
+          <aside class="side-panel right-panel">
+            <div class="section-label"><span>02 / YOUR SETUP</span><span>✳</span></div>
+            <div class="camera-heading"><div><h2>Eye spy <span>✦</span></h2><p>Let’s get you connected.</p></div><span class="camera-symbol">◉</span></div>
+            <div class="camera-frame">
+              <video id="camera-video" playsinline muted></video>
+              <div class="camera-placeholder" id="camera-placeholder"><div class="face-outline"><span>◡</span><span>◡</span><b>⌣</b></div><p>YOUR FACE GOES HERE</p></div>
+              <div class="camera-corner top-left"></div><div class="camera-corner top-right"></div><div class="camera-corner bottom-left"></div><div class="camera-corner bottom-right"></div>
+              <div class="camera-live" id="camera-live"><i></i> CAMERA OFF</div>
+            </div>
+            <div class="camera-status"><span class="camera-status-dot" id="camera-status-dot"></span><span id="camera-status">Camera is off</span></div>
+            <button class="camera-button" id="camera-button">◎ &nbsp; ENABLE CAMERA <span>↗</span></button>
+            <p class="privacy">✧ &nbsp; Your camera stays on your device.<br><span>No recordings, just good vibes.</span></p>
+            <div class="divider"></div>
+            <div class="eye-heading">BLINK CHECK <span>✦</span></div>
+            <div class="eye-check"><div id="left-check"><span>◉</span><p>LEFT EYE<small>READY TO BLINK</small></p><b>—</b></div><div id="right-check"><span>◉</span><p>RIGHT EYE<small>READY TO BLINK</small></p><b>—</b></div></div>
+            <div class="tip"><span>✦</span><p><b>A LITTLE TIP</b><br>Good lighting makes for<br>happy blinking.</p></div>
+          </aside>
+        </section>
+        <footer><span>© BLINK BEAT 2025</span><span>MADE FOR THE PLOT <b>✳</b></span><span>TAKE A BREATH. FIND YOUR BEAT.</span></footer>
+      </main>
+    </div>
+    <script src="./game.js"></script>
+    <script src="./app.js"></script>
+  </body>
+</html>
