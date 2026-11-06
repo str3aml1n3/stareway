@@ -15,7 +15,7 @@ jobs:
       - name: Install Butler
         run: |
           mkdir -p "$RUNNER_TEMP/butler"
-          curl --fail --location --silent --show-error https://broth.itch.ovh/butler/linux-amd64/LATEST/archive/default -o "$RUNNER_TEMP/butler.zip"
+          curl --fail --location --silent --show-error https://broth.itch.zone/butler/linux-amd64/LATEST/archive/default -o "$RUNNER_TEMP/butler.zip"
           unzip -q "$RUNNER_TEMP/butler.zip" -d "$RUNNER_TEMP/butler"
           chmod +x "$RUNNER_TEMP/butler/butler"
           echo "$RUNNER_TEMP/butler" >> "$GITHUB_PATH"
