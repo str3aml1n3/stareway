@@ -13,3 +13,5 @@ Run `npm test` for the game logic tests.
 ## Publish to itch.io
 
 Install [Butler](https://itch.io/docs/butler/installing.html) and make sure `butler` is on your PATH. Set `ITCH_IO_KEY` to your itch.io API key and `ITCH_IO_TARGET_PATH` to `username/game` or `username/game:channel`, then run `npm run publish:itch`. The channel defaults to `html5`. Configure the itch.io project as an HTML game; the script uploads only the four files needed to play. Keep the API key private.
+
+Alternatively, add `ITCH_IO_KEY` and `ITCH_IO_TARGET_PATH` as GitHub Actions repository secrets, then run **Publish to itch.io** from the repository's Actions tab. The workflow installs Butler and publishes the selected branch using the same script.

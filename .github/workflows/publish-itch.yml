@@ -1,0 +1,26 @@
+name: Publish to itch.io
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+      - name: Install Butler
+        run: |
+          mkdir -p "$RUNNER_TEMP/butler"
+          curl --fail --location --silent --show-error https://broth.itch.ovh/butler/linux-amd64/LATEST/archive/default -o "$RUNNER_TEMP/butler.zip"
+          unzip -q "$RUNNER_TEMP/butler.zip" -d "$RUNNER_TEMP/butler"
+          chmod +x "$RUNNER_TEMP/butler/butler"
+          echo "$RUNNER_TEMP/butler" >> "$GITHUB_PATH"
+      - name: Publish game
+        run: npm run publish:itch
+        env:
+          ITCH_IO_KEY: ${{ secrets.ITCH_IO_KEY }}
+          ITCH_IO_TARGET_PATH: ${{ secrets.ITCH_IO_TARGET_PATH }}
